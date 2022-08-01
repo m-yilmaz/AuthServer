@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace AuthServer.Service.Services
 {
-    public class AuthenticationService : IAuthenticatonService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly List<Client> _clients;
         private readonly ITokenService _tokenService;
@@ -63,7 +63,7 @@ namespace AuthServer.Service.Services
             return Response<ClientTokenDto>.Success(200);
         }
 
-        public async Task<Response<TokenDto>> CreateTokenByRefleshToken(string refleshToken)
+        public async Task<Response<TokenDto>> CreateTokenByRefleshTokenAsync(string refleshToken)
         {
             var existRefleshToken = await _userRefleshTokenService.Where(x => x.Code == refleshToken).SingleOrDefaultAsync();
             if (existRefleshToken == null)

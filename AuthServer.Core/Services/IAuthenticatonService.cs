@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace AuthServer.Core.Services
 {
-    public interface IAuthenticatonService
+    public interface IAuthenticationService
     {
         Task<Response<TokenDto>> CreateTokenAsync(LoginDto loginDto);
-        Task<Response<TokenDto>> CreateTokenByRefleshToken(string refleshToken);
+        Task<Response<TokenDto>> CreateTokenByRefleshTokenAsync(string refleshToken);
         Task<Response<NoDataDto>> RevokeRefleshToken(string refleshToken);
         Response<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto);
 
